@@ -1,36 +1,36 @@
-## Deepsecurity libraries for Azure python Function
+# Deepsecurity libraries for Azure python Function
 Deep security library for python 2.7.x for Azure python function
 
 Default python version in azure function is 2.7.8 which has few SSL limitations. In order to use 3rd party libraries, Python function version need to be upgraded to 2.7.14.
-## Create Azure function with Python 2.7.14
+# Create Azure function with Python 2.7.14
 Create a Function App
 First, create a new Function App. 
 
-# Create a New Function App
+### Create a New Function App
 
 Confirm the function app is up and running.  Then click the + sign next to functions to add a function to the app. 
 
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/createFunc.png)
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/addFunctionToApp.png)
 
-# Create a New Function
+### Create a New Function
 
 The center pane will ask for a scenario and language to assist with a premade function. Since we are using python for our language, a custom function must be selected to proceed.
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/customFunc.png)
 
-# Enable Experimental Languages
+### Enable Experimental Languages
 
 After selecting Python, only two options (HTTP trigger and Queue trigger) can be selected. For this demo, I will select HTTP trigger. I left the defaults for this example.
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/enableExperimentalLang.png)
 
-# HTTP Trigger
+### HTTP Trigger
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/newHTTPtrigger.png)
 
-# Update Python Version
+### Update Python Version
 Now that we have a function in the app, the python version needs to be updated. The python version that is installed is old and conflicted with my scripts. This may not be the case for your scripts but if you need to update to a specific version of python, this will assist in that process. My scripts were written for Python 2.7. I need to fix my scripts to support Python 3.6 but that will come at a later time. To get started, We need to access the Kudu tool. Click the Function App name on the left, then Platform features at the top, and then “Advanced tools (Kudu)” near the bottom of the center pane.
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/accessKudu.png)
 
-# Azure App's Kudu
+### Azure App's Kudu
 
 To update the Python version, click the Site extensions at the top.
 
@@ -44,7 +44,7 @@ I need Python version 2.7.14 x64. Click the + sign to install the extension into
 
 Now that our desired version of Python has been installed, the Handler Mappings need to be updated. Go back to the Function App’s Platform Features page. Then select “Application settings.”
 
-# Application Settings
+### Application Settings
 
 A new tab is shown in the center pane. Scroll to the bottom to the Handler Mappings section. A new mapping needs to be added. Click “Add new handler mapping” and enter the relevant settings for “fastCgi” handler mapping for the version of Python you installed. The path is shown on the tile when you installed the different version. My handler settings were as followed:
 ![alt text](http://www.get-vm.com/blog/wp-content/uploads/2018/04/appSettings.png)
@@ -67,14 +67,14 @@ http://www.get-vm.com/blog/2018/04/11/python-modules-azure-functions/
 
 
 
-## install xmltodict in azure function
+# install xmltodict in azure function
 
  Go back to Kudu console (CMD) and install xmltodict. 
  ```
  D:\home>pip install xmltodict
  ```
  
-## clone deep security libraries (modified) for Azure funcation.
+# clone deep security libraries (modified) for Azure funcation.
 
  Navigate to your funcation path
 ```
@@ -83,7 +83,7 @@ http://www.get-vm.com/blog/2018/04/11/python-modules-azure-functions/
  
  NOTE: {azure function name} is the function name you gave while creating custom function.
  
- ## Create test function in run.py to test the connectivity
+ # Create test function in run.py to test the connectivity
  
  ```
 from __future__ import print_function

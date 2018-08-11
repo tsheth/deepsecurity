@@ -8,7 +8,7 @@ import urllib
 import urllib2
 
 # 3rd party libraries
-import libs.xmltodict as xmltodict
+import xmltodict
 
 # project libraries
 import translation
